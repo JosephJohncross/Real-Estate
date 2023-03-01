@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Header from './components/layout/Header'
 import { CustomRoutes } from './routes';
-import {createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom';
+import {BrowserRouter, createBrowserRouter, createRoutesFromElements, RouterProvider, Routes} from 'react-router-dom';
 import Footer from './components/layout/Footer';
 
 const router = createBrowserRouter(
@@ -13,13 +13,15 @@ function App() {
 
   return (
     <>
-      <Header/>
       <div className='' style={{ minHeight: "90vh"}}>
-        <RouterProvider
-          router={router}
-        />
+        <BrowserRouter>
+          <Header/>
+          <Routes>
+            {...CustomRoutes()}
+          </Routes>
+          <Footer/>
+        </BrowserRouter>
       </div>
-      <Footer/>
     </>
   )
 }
