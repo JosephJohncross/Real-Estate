@@ -1,12 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../common/Button'
 
 const Header = () =>  {
   return (
     <>
-        <Link to='/'>Home</Link>
-        <Link to='/listing'>Listing</Link>
-        <Link to='/login'>Login</Link>
+        <div className='container__limiter md:h-20 flex items-center font-work text-lg text-shade10 sticky top-0 z-auto'>
+            <div className='flex w-1/2 font-semibold justify-between'>
+                <p className=''>Logo</p>
+                <div className="flex space-x-12">
+                    <Link to='/'>Home</Link>
+                    <Link to='/listing'>Listing</Link>
+                    <Link to='/login'>Login</Link>
+                </div>
+            </div>
+            <div className='w-1/2 font-semibold flex justify-end'>
+                <Button shade="white" content="Login"/>
+                <Button shade="black" content="Sign up"/>
+            </div>
+        </div>
     </>
   )
 }

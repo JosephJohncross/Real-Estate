@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .container__limiter{
+        @apply container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-0
+      }
+      .hero{
+        min-height: calc(100vh - 130px);
+      }
+      .hero-bg{
+        background-image: url("../images/carousal1.jpg");
+      }
+      .hero-bg-2{
+        background-image: url("../images/carousal2.jpg");
+      }
+      .hero-bg-3{
+        background-image: url("../images/carousal3.jpg");
+      }
+}
