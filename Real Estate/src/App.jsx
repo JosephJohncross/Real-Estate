@@ -11,7 +11,7 @@ function App() {
     <>
         <BrowserRouter>
         <div 
-          className='bg-shade1'
+          className='bg-white h-screen'
         >
           <Header/>
           <div className='' style={{ minHeight: "100vh"}}>

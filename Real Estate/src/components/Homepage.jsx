@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Button from './common/Button';
+import { Link } from 'react-router-dom';
 
 const Homepage = () => {
     const [activeSearch, setActiveSearch] = useState('buy')
@@ -98,6 +99,9 @@ const Homepage = () => {
                         </form>
                     </div>
                 </div>
+            </div>
+            <div className='text-center font-medium py-10'>
+                <Link to='/' className='py-3 hover:border-shade13 hover:rounded-md hover:px-3 hover:border active:bg-shade13 active:text-shade3'>View all properties</Link>
             </div>
         </section>
     )
