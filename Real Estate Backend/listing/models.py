@@ -3,6 +3,20 @@ from django.contrib.gis.db  import models as geomodels
 from django.contrib.gis.geos import Point
 
 
+class ListingFeature(models.Model):
+    """Model for property listing features"""
+
+    rooms = models.IntegerField(blank=True, null=True)
+    pool = models.BooleanField(default=False)
+    furnished = models.BooleanField(default=False)
+    elevator = models.BooleanField(default=False)
+    cctv = models.BooleanField(default=False)
+    parking = models.BooleanField(default=False)
+    wifi = models.BooleanField(default=False)
+
+
+
+
 AREA_CHOICES = (
     ('Inner London', 'Inner London'),
     ('Outer London', 'Outer London'),
@@ -35,20 +49,12 @@ class Listing(models.Model):
     listing_type = models.CharField(max_length=20, choices=LISTING_TYPES)
     property_status = models.CharField(max_length=20, blank=True, null=True, choices=PROPERTY_STATUS)
     price = models.DecimalField(max_digits=50, decimal_places=0)
-    # features = models.ForeignKey(ListingFeature, on_delete=models.CASCADE )
+    features = models.ForeignKey(ListingFeature, on_delete=models.CASCADE, null=True)
     rental_frequency = models.CharField(max_length=20,  blank=True, null=True, choices=RENTAL_FREQUENCY)
     location = geomodels.PointField(blank=True, null=True, srid=4326) #Note Srid is the spartial identifier, which is the unique identifier associated with the specific coordinate system 
     date_posted = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class ListingFeature(models.Model):
-    """Model for property listing features"""
-
-    rooms = models.IntegerField(blank=True, null=True)
-    pool = models.BooleanField(default=False)
-    furnished = models.BooleanField(default=False)
-    elevator = models.BooleanField(default=False)
-    cctv = models.BooleanField(default=False)
-    parking = models.BooleanField(default=False)
-    wifi = models.BooleanField(default=False)
+    def __str__(self):
+        return self.title

@@ -1,6 +1,12 @@
 from django.contrib import admin
 from .models import Listing, ListingFeature
+from .forms import ListingForm
 
-# Register your models here.
-admin.site.register(Listing)
+
+class ListingAdmin(admin.ModelAdmin):
+    form = ListingForm
+
+
+
+admin.site.register(Listing, ListingAdmin)
 admin.site.register(ListingFeature)
