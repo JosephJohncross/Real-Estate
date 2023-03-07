@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from listing.api import views as listing_api_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/listings/', listing_api_view.ListingList.as_view()), 
 ]
