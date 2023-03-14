@@ -37,7 +37,7 @@ export const Listing = () => {
   }
 
   return (
-    <section className='bg-white mt-8 max-h-max overflow-hidden'>
+    <section className='bg-white max-h-max overflow-hidden'>
       <div className='container__limiter grid grid-cols-12 grid-rows-[100vh] gap-x-2'>
         <div className='col-span-3 overflow-y-scroll property__scroll pr-6 my-7'>
           { myListings.map(listing => {
