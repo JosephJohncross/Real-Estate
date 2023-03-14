@@ -1,14 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import { getListings } from '../services/https-request'
+
+// React Spinner 
+import FadeLoader from "react-spinners/FadeLoader"; 
+//Spinner styling
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
+
 
 // React Leaflet
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Icon } from 'leaflet'
-import myListings from '../utility/Dummydata'
 import ListingCard from './common/ListingCard'
+import { Axios } from 'axios';
 
 export const Listing = () => {
   const [latitude, setLatitude] = useState(51.505)
   const [longitude, setLongitude] = useState(-0.09)
+  const [listings, setListings] = useState([])
+  const [loading, setLoading] = useState(true)
   
 
   const houseIcon = new Icon({
@@ -36,8 +49,19 @@ export const Listing = () => {
     }
   }
 
+  useEffect(()=> {
+    const controller = new AbortController();
+
+    getListings(setListings, setLoading, controller)
+    console.log(listings)
+
+    return () => {
+      controller.abort()
+    }
+  }, [])
+
   return (
-    <section className='bg-white mt-8 max-h-max overflow-hidden'>
+    <section className='bg-white max-h-max overflow-hidden'>
       <div className='container__limiter grid grid-cols-12 grid-rows-[100vh] gap-x-2'>
         <div className='col-span-3 overflow-y-scroll property__scroll pr-6 my-7'>
           { myListings.map(listing => {
