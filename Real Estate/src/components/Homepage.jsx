@@ -28,7 +28,6 @@ const Homepage = () => {
                     modules={[ A11y, Autoplay]}
                     spaceBetween={0}
                     slidesPerView={1}
-                    onSwiper={(swiper) => console.log(swiper)}
                     autoplay={{delay: 2000}}
                     loop={true}
                     zoom={true}
