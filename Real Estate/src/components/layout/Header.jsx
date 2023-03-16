@@ -16,8 +16,12 @@ const Header = () =>  {
                     </div>
                 </div>
                 <div className='w-1/2 font-semibold flex justify-end'>
-                    <Button shade="white" content="Login"/>
-                    <Button shade="black" content="Sign up"/>
+                    <Link to="/login">
+                        <Button shade="white" content="Login"/>
+                    </Link>
+                    <Link to="/register">
+                        <Button shade="black" content="Sign up"/>
+                    </Link>
                 </div>
             </div>
         </div>

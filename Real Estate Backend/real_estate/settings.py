@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_gis',
     'corsheaders',
+    'djoser',
+    'rest_framework.authtoken',
 
     'listing',
     'account'
@@ -149,3 +151,15 @@ if DEBUG == True:
 
 AUTH_USER_MODEL = 'account.User'
 CORS_ALLOW_ALL_ORIGINS = True
+
+# For djoser token
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
+DJOSER = {
+    'USER_CREATE_PASSWORD_RETYPE': True,
+    'SEND_ACTIVATION_EMAIL': False,    
+}

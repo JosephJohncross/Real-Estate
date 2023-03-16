@@ -26,8 +26,8 @@ module.exports = {
         shade2: "#cfd3d8",
         shade1: "#dfe1e5",
       },
-      dropShadow: {
-
+      boxShadow: {
+        'shadow1': "0px 0px 40px 24px rgba(0,0,0,0.1)"
       }
     },
   },
