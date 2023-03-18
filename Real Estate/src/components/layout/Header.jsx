@@ -1,4 +1,4 @@
-import React, {useContext, useRef} from 'react'
+import React, {useContext, useRef, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../common/Button'
 import StateContext from '../../context/StateContext'
@@ -11,8 +11,6 @@ const Header = () =>  {
     const GlobalState = useContext(StateContext)
     const GlobalDispatch = useContext(DispatchContext)
     const userDropDown = useRef()
-
-
 
     return (
         <>
@@ -29,23 +27,23 @@ const Header = () =>  {
                     <div className='w-1/2 font-semibold flex justify-end'>
                     
                     {GlobalState.userisLoggedIn ?
-                                <>
-                                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="rounded-full px-4 py-4 border-shade13 border outline-none focus:ring-2 focus:ring-shade13" type="button">
+                                <div className='relative'>
+                                    <button id="dropdownDefaultButton"  className="rounded-full px-4 py-4 border-shade13 border outline-none focus:ring-2 focus:ring-shade13" type="button"  onClick={(e)=>{toggleUserDetailDropDown(userDropDown)}}>
                                         <img src='' alt=''/>
                                     </button>
                                     {/* Dropdown menu */}
-                                    <div id="dropdown" ref={userDropDown} className="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg w-44 font-work shadow-shadow1">
+                                    <div id="dropdown" ref={userDropDown} className="absolute top-12 right-0 z-50 hidden bg-white divide-y divide-gray-100 rounded-lg w-44 font-work shadow-shadow1">
                                         <p className='py-4 font-semibold text-sm text-center capitalize'>{GlobalState.userUsername}</p>
                                         <ul className="py-2 text-sm text-shade13" aria-labelledby="dropdownDefaultButton">
                                             <li className=''>
-                                                <p  className="block px-4 py-2 hover:bg-gray-100 text-center" onClick={()=>{toggleUserDetailDropDown(userDropDown)}}>Profile</p>
+                                                <p  className="block px-4 py-2 hover:bg-gray-100 text-center" onClick={(e)=>{toggleUserDetailDropDown(userDropDown)}}>Profile</p>
                                             </li>                                        
                                             <li>
-                                                <p className="block px-4 py-2 hover:bg-gray-100 text-center" onClick={()=>{logout(GlobalDispatch, GlobalState); toggleUserDetailDropDown(userDropDown)}}>Sign out</p>
+                                                <p className="block px-4 py-2 hover:bg-gray-100 text-center" onClick={(e)=>{logout(GlobalDispatch); toggleUserDetailDropDown(userDropDown)}}>Sign out</p>
                                             </li>
                                         </ul>
                                     </div>
-                                </>
+                                </div>
 
                             :                            
                             <>

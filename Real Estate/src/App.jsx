@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { CustomRoutes } from './routes';
 import {BrowserRouter, Routes} from 'react-router-dom';
 import { useImmerReducer } from 'use-immer';
@@ -13,13 +13,15 @@ const reducerFunction = (draft, action) => {
       draft.userToken = localStorage.setItem('userToken', action.token)
       break;
     case 'getUserInfo':
-      draft.userUsername = localStorage.setItem('userUsername', action.username)
-      draft.userEmail = localStorage.setItem('userEmail', action.email)
-      draft.userId = localStorage.setItem('userId', action.id)
-      draft.userisLoggedIn = localStorage.setItem('userisLoggedIn', true)
+      draft.userUsername = action.username
+      draft.userEmail = action.email
+      draft.userId = action.id
+      draft.userisLoggedIn = true
       break;
     case 'logout':
       localStorage.clear()
+      draft.userisLoggedIn = false
+      draft.userToken = ""
       break;
     default:
       ""
@@ -31,12 +33,25 @@ const intiialState = {
   userEmail: localStorage.getItem('userEmail'),
   userId: localStorage.getItem('userId'),
   userToken: localStorage.getItem('userToken'),
-  userisLoggedIn: localStorage.getItem('userUsername') ? true : false
+  userisLoggedIn: false
 }
 
 function App() {
 
     const [state, dispatch] = useImmerReducer(reducerFunction, intiialState)
+
+    useEffect(()=>{
+      if (state.userisLoggedIn) {
+        localStorage.setItem('userId', state.userId)
+        localStorage.setItem('userEmail', state.userEmail)
+        localStorage.setItem('userUsername', state.userUsername)
+      }
+      else {
+        localStorage.getItem('userId')
+        localStorage.getItem('userEmail')
+        localStorage.getItem('userUsername')
+      }
+    },[state.userisLoggedIn])
 
     return (
       <>  

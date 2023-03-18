@@ -1,9 +1,8 @@
 import React, {useEffect, useContext} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useImmerReducer } from 'use-immer'
 import { signIn, getUserDetails } from '../services/https-request'
 import DispatchContext from '../context/DispatchContext'
-import StateContext from '../context/StateContext'
 
 const reducerFunction = (draft, action) => {
     switch(action.type){
@@ -32,12 +31,13 @@ function Login() {
     
     const [state, dispatch] = useImmerReducer(reducerFunction, initialState)
     const GlobalDispatch = useContext(DispatchContext)
-    const GlobalState = useContext(StateContext)
-
+    const navigate = useNavigate()
     
     useEffect(()=>{
-        if (state.tokenValue !== '' ){
+        if (state.tokenValue){
             getUserDetails(state.tokenValue, GlobalDispatch)
+                console.log("Global user loggeIn is working")
+                navigate("/")
         }
     },[state.tokenValue])
 
@@ -53,11 +53,11 @@ function Login() {
                         </div>
                         <p className='capitalize text-gray-200 mt-3'>Don't have an account? <Link to="/register" className='text-green-500'>Sign up</Link></p>
 
-                        <form className='mt-10 flex flex-col space-y-4' onSubmit={(e)=>{signIn(e, state.usernameValue, state.passwordValue, dispatch,GlobalDispatch)}}>
+                        <form className='mt-10 flex flex-col space-y-4' onSubmit={(e)=>{signIn(e, state.usernameValue, state.passwordValue, dispatch, GlobalDispatch)}}>
                             <input type="text" name="username" placeholder="Username" className="border p-4 md:w-2/3 border-transparent rounded-md focus:border-blue-200 focus:ring-blue-200 focus:ring-2 placeholder:font-inter placeholder:text-sm placeholder:ipad:text-base outline-none" onChange={(e)=>{dispatch({type: "usernameChange", username: e.target.value})}}/>
                             <input type="password" name="password" placeholder="Password" className="border p-4 md:w-2/3 border-transparent rounded-md focus:border-blue-200 focus:ring-2 focus:ring-blue-200 placeholder:font-inter placeholder:text-sm placeholder:ipad:text-base outline-none" onChange={(e)=>{dispatch({type: "passwordChange", password: e.target.value})}}/>
                             <div className=''>
-                                <button className='bg-green-500 text-white rounded-full mt-10 px-10 py-3 small:py-3 small:px-10 w-full small:w-max md:w-max text-sm font-semibold hover:bg-green-600 hover:shadow-md transition-all outline-none focus:ring-2 focus:ring-green-400'>Sign In</button>
+                                <input type='submit' value="Sign In" className='bg-green-500 text-white rounded-full mt-10 px-10 py-3 small:py-3 small:px-10 w-full small:w-max md:w-max text-sm font-semibold hover:bg-green-600 hover:shadow-md transition-all outline-none focus:ring-2 focus:ring-green-400'/>
                             </div>
                         </form>
                     </div>

@@ -58,27 +58,25 @@ export const getUserDetails = (tokeValue, GlobalDispatch) => {
     .then(data =>  {
         console.log(data)
         GlobalDispatch({type: "getUserInfo", username: data.username, email: data.email, id: data.id})
-        // window.location.href = "/"
     })
     .catch(error => console.log(error))
 }
 
 // Handles logging a user out
-export const logout = (GlobalDispatch, GlobalState) => {
+export const logout = (GlobalDispatch) => {
     
-    axios.post('http://127.0.0.1:8000/api-auth-djoser/token/logout/', {
-        headers: {Authorization: 'Token '.concat(GlobalState.userToken)}
+    axios.post('http://127.0.0.1:8000/api-auth-djoser/token/logout/', localStorage.getItem('userToken'), {
+        headers: {Authorization: 'Token '.concat(localStorage.getItem('userToken'))}
     })
     .then(response => response.data)
     .then(data =>  {
         console.log(data)
         GlobalDispatch({type: "logout"})
-        // window.location.href = "/"
     })
     .catch(error => console.log(error))
 }
 
-export const toggleUserDetailDropDown = (ref) => {
-    // ref.toggle()
+export const toggleUserDetailDropDown = (e,ref) => {
+    ref.current.classList.toggle('hidden')
 }
 
