@@ -53,8 +53,12 @@
         display: hidden;
         width: 0px;
       }
+      .mobile-show {
+        @apply translate-x-0 z-[100]
+      }
 }
 .leaflet-container{
   @apply h-full w-full
 }
+
 

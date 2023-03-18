@@ -76,7 +76,7 @@ export const logout = (GlobalDispatch) => {
     .catch(error => console.log(error))
 }
 
-export const toggleUserDetailDropDown = (e,ref) => {
+export const toggleUserDetailDropDown = (ref) => {
     ref.current.classList.toggle('hidden')
 }
 

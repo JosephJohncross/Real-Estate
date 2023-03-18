@@ -28,6 +28,9 @@ module.exports = {
       },
       boxShadow: {
         'shadow1': "0px 0px 40px 24px rgba(0,0,0,0.1)"
+      },
+      screens: {
+        mini: "900px"
       }
     },
   },

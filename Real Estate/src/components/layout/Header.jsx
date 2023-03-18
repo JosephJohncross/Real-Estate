@@ -7,24 +7,28 @@ import { logout } from '../../services/https-request'
 import { toggleUserDetailDropDown } from '../../services/https-request'
 
 const Header = () =>  {
-
+    
     const GlobalState = useContext(StateContext)
     const GlobalDispatch = useContext(DispatchContext)
     const userDropDown = useRef()
+    
+    const toggleNav = () => {
+        GlobalDispatch({type: 'toggleNav'})
+    }
 
     return (
         <>
-            <div className='bg-white sticky top-0 z-[2000]'>
+            <div className='bg-white sticky top-0 z-20 py-3 md:py-0'>
                 <div className='container__limiter md:h-20 flex items-center font-work text-lg text-shade10'>
                     <div className='flex w-1/2 font-semibold justify-between'>
                         <p className=''>Logo</p>
-                        <div className="flex space-x-12">
+                        <div className="hidden md:flex space-x-12">
                             <Link to='/'>Home</Link>
                             <Link to='/listing'>Listing</Link>
                             <Link to='/login'>Agencies</Link>
                         </div>
                     </div>
-                    <div className='w-1/2 font-semibold flex justify-end'>
+                    <div className='w-full md:w-1/2 font-semibold flex justify-end'>
                     
                     {GlobalState.userisLoggedIn ?
                                 <div className='relative'>
@@ -47,12 +51,19 @@ const Header = () =>  {
 
                             :                            
                             <>
-                                <Link to="/login">
-                                <Button shade="white" content="Login"/>
+                                <Link to="/login" className="hidden md:block">
+                                    <Button shade="white" content="Login"/>
                                 </Link>
-                                <Link to="/register">
+                                <Link to="/register" className="hidden md:block">
                                     <Button shade="black" content="Sign up"/>
                                 </Link>
+                                <div id="hamburger" className="flex items-center justify-center cursor-pointer md:hidden pl-4">
+                                    <div className="md:hidden" onClick={()=> {toggleNav()}}>
+                                            <span className="block bg-shade13 mb-1 h-[2px] w-5 lg:hidden"></span>
+                                            <span className="block bg-shade13 mb-1 h-[2px] w-5 lg:hidden"></span>
+                                            <span className="block bg-shade13 mb-1 h-[2px] w-5 lg:hidden"></span>
+                                    </div>
+                                </div>
                             </> 
                     }
                         
