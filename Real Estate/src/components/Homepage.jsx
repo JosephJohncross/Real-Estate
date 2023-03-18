@@ -102,7 +102,7 @@ const Homepage = () => {
                 </div>
                 <div className='text-center font-medium py-10'>
                     <Link to='/' className='py-3 hover:border-shade13 hover:rounded-md hover:px-3 hover:border active:bg-shade13 active:text-shade3'>View all properties</Link>
-                </div>
+                </div>                
             </section>
             <Footer/>
         </>
