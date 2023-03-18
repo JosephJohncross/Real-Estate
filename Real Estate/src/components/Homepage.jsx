@@ -54,12 +54,12 @@ const Homepage = () => {
                         </SwiperSlide>
                         ...
                     </Swiper>            
-                    <div className='absolute top-0 left-0 bottom-0 p-16 max-w-3xl text-white z-50 flex flex-col space-y-10 justify-center font-mont'>
-                        <div className="text-6xl">
+                    <div className='absolute top-0 left-0 bottom-0 px-4 sm:px-6 md:px-10 mini:p-16 w-full sm:max-w-2xl md:max-w-3xl text-white z-20 flex flex-col space-y-10 justify-center font-mont'>
+                        <div className="text-3xl md:text-4xl mini:text-5xl lg:text-6xl">
                             <p className=''>Mordern home.</p>
                             <p className=''>Your best home.</p>
                         </div>
-                        <p className=''>Let's find you a perfect home for you</p>
+                        <p className='text-sm md:text-base'>Let's find you a perfect home for you</p>
                         <div className=''>
                             <div className='flex'>
                                 <div className='font-semibold' onClick={() => {switchSearch('buy')}}>
@@ -70,30 +70,30 @@ const Homepage = () => {
                                 </div>
                             </div>
                             <form className='bg-shade2 px-6 py-4 text-shade12 flex justify-between md:space-x-14 font-mont'>
-                                <div className='flex space-x-8'>
+                                <div className='flex flex-col space-y-3 md:flex-row md:space-x-8 md:space-y-0'>
                                     <div className='flex flex-col space-y-1'>
-                                        <div className='font-semibold flex space-x-2 items-center'>
+                                        <div className='font-bold mini:font-semibold flex space-x-2 items-center text-sm mini:text-base'>
                                             <p>Location</p>
                                             <img src="https://img.icons8.com/metro/14/null/chevron-down.png"/>
                                         </div>
                                         <div className='text-sm'>New York USA</div>
                                     </div>
                                     <div className='flex flex-col space-y-1'>
-                                        <div className='font-semibold flex space-x-2 items-center'>
+                                        <div className='font-bold mini:font-semibold flex space-x-2 items-center text-sm mini:text-base'>
                                             <p>House type</p>
                                             <img src="https://img.icons8.com/metro/14/null/chevron-down.png"/>
                                         </div>
                                         <div className='text-sm'>Apartment</div>
                                     </div>
                                     <div className='flex flex-col space-y-1'>
-                                        <div className='font-semibold flex space-x-2 items-center'>
+                                        <div className='font-bold mini:font-semibold flex space-x-2 items-center text-sm mini:text-base'>
                                             <p>Pricing</p>
                                             <img src="https://img.icons8.com/metro/14/null/chevron-down.png"/>                                    
                                         </div>
-                                        <div className='text-sm'>$5000 - $ 10000</div>
+                                        <div className='text-sm'>$5000 - $10000</div>
                                     </div>
                                 </div>
-                                <button role={'search'} className="bg-shade13 p-3 hover:bg-shade12">
+                                <button role={'search'} className="bg-shade13 p-3 hover:bg-shade12 self-baseline">
                                     <img src="https://img.icons8.com/ios-glyphs/20/ffffff/search--v1.png"/>
                                 </button>
                             </form>

@@ -109,7 +109,7 @@ export const Listing = () => {
                               {listings.map(listing => {
                                 return (
                                   // Each marker on the map 
-                                  <Marker icon={getListingType(listing.listing_type)} position={[listing.location.coordinates[0], listing.location.coordinates[1]]} key={listing.id}>
+                                  <Marker icon={getListingType(listing.listing_type)} position={[listing.latitude, listing.longitude]} key={listing.id}>
                                     <Popup>
                                     <div className='font-didact w-44'>
                                       <p className='font-semibold'>{listing.title}</p>
