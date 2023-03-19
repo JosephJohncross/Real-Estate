@@ -51,21 +51,24 @@ const Header = () =>  {
 
                             :                            
                             <>
+                                <Link to="/add-listing" className="hidden md:block">
+                                    <Button shade="bordered" content="Add Property"/>
+                                </Link>
                                 <Link to="/login" className="hidden md:block">
                                     <Button shade="white" content="Login"/>
                                 </Link>
                                 <Link to="/register" className="hidden md:block">
-                                    <Button shade="black" content="Sign up"/>
+                                    <Button shade="bordered" content="Sign up"/>
                                 </Link>
-                                <div id="hamburger" className="flex items-center justify-center cursor-pointer md:hidden pl-4">
-                                    <div className="md:hidden" onClick={()=> {toggleNav()}}>
-                                            <span className="block bg-shade13 mb-1 h-[2px] w-5 lg:hidden"></span>
-                                            <span className="block bg-shade13 mb-1 h-[2px] w-5 lg:hidden"></span>
-                                            <span className="block bg-shade13 mb-1 h-[2px] w-5 lg:hidden"></span>
-                                    </div>
-                                </div>
                             </> 
                     }
+                    <div id="hamburger" className="flex items-center justify-center cursor-pointer md:hidden pl-4">
+                        <div className="md:hidden" onClick={()=> {toggleNav()}}>
+                                <span className="block bg-shade13 mb-1 h-[2px] w-5 lg:hidden"></span>
+                                <span className="block bg-shade13 mb-1 h-[2px] w-5 lg:hidden"></span>
+                                <span className="block bg-shade13 mb-1 h-[2px] w-5 lg:hidden"></span>
+                        </div>
+                    </div>
                         
                     </div>
                 </div>

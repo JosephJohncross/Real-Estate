@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import AddListing from './components/AddListing';
 import Homepage from './components/Homepage';
 import { Listing } from './components/Listing';
 import Login from './components/Login';
@@ -11,5 +12,6 @@ export const CustomRoutes = () => {
         <Route path='/login' element={<Login/>}/>,
         <Route path='/listing' element={<Listing/>}/>,
         <Route path='/register' element={<Register/>}/>,
+        <Route path='add-listing' element={<AddListing/>}/>,
     ])
 }
