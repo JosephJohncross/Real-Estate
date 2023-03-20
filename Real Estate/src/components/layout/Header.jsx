@@ -20,7 +20,7 @@ const Header = () =>  {
         <>
             <div className='bg-white sticky top-0 z-20 py-3 md:py-0'>
                 <div className='container__limiter md:h-20 flex items-center font-work text-lg text-shade10'>
-                    <div className='flex w-1/2 font-semibold justify-between'>
+                    <div className='flex w-1/2 font-semibold justify-between font-didact'>
                         <p className=''>Logo</p>
                         <div className="hidden md:flex space-x-12">
                             <Link to='/'>Home</Link>

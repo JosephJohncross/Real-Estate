@@ -17,7 +17,6 @@ const override = {
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import ListingCard from './common/ListingCard'
-import { Axios } from 'axios';
 
 export const Listing = () => {
   const [latitude, setLatitude] = useState(51.505)
