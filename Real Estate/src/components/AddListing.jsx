@@ -254,8 +254,8 @@ const AddListing = () => {
                             <div className='grid md:grid-cols-2 gap-x-8 gap-y-7 md:gap-y-10 mini:gap-y-14'>
                                 {/* Title */}
                                 <div className="relative z-0">
-                                    <input type="text" value={state.titleValue} id="title" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
-                                    <label htmlFor="title" name="title" className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" onChange={(e)=>{dispatch({type: "catchTitleValue", title: e.target.value})}}>Title</label>
+                                    <input type="text" value={state.titleValue} id="title" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={(e)=>{dispatch({type: "catchTitleValue", title: e.target.value})}}/>
+                                    <label htmlFor="title" name="title" className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Title</label>
                                 </div>
                                 {/* Description */}
                                 <div className="relative z-0">
@@ -311,22 +311,26 @@ const AddListing = () => {
                                 {/* Picture 1 */}
                                 <div className=''>                                
                                     <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="file_input">Picture 1</label>
-                                    <input value={state.picture1Value} name='picture1' className="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50" id="file_input" type="file" onChange={(e)=>{dispatch({type: "catchPicture1Value", picture1: e.target.value})}}/>
+                                    <input name='picture1' className="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50" id="file_input" type="file"/>  
+                                    {/* onChange={(e)=>{dispatch({type: "catchPicture1Value", picture1: e.target.value})}} */}
                                 </div>
                                 {/* Picture 2 */}
                                 <div className=''>                                
                                     <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="file_input">Picture 2</label>
-                                    <input value={state.picture2Value} name='picture2' className="block w-full text-sm text-gray-900 border border-gray-300  cursor-pointer bg-gray-50" id="file_input" type="file" onChange={(e)=>{dispatch({type: "catchPicture2Value", picture2: e.target.value})}}/>
+                                    <input name='picture2' className="block w-full text-sm text-gray-900 border border-gray-300  cursor-pointer bg-gray-50" id="file_input" type="file" />
+                                    {/* onChange={(e)=>{dispatch({type: "catchPicture2Value", picture2: e.target.value})}} */}
                                 </div>
                                 {/* Picture 3 */}
                                 <div className=''>                                
                                     <label className="block mb-2 text-sm font-medium text-gray-900 " htmlFor="file_input">Picture 3</label>
-                                    <input value={state.picture3Value} name='picture3' className="block w-full text-sm text-gray-900 border border-gray-300  cursor-pointer bg-gray-50" id="file_input" type="file" onChange={(e)=>{dispatch({type: "catchPicture3Value", picture3: e.target.value})}}/>
+                                    <input name='picture3' className="block w-full text-sm text-gray-900 border border-gray-300  cursor-pointer bg-gray-50" id="file_input" type="file" />
+                                    {/* onChange={(e)=>{dispatch({type: "catchPicture3Value", picture3: e.target.value})}} */}
                                 </div>
                                 {/* Picture 4 */}
                                 <div className=''>                                
                                     <label className="block mb-2 text-sm font-medium text-gray-900 " htmlFor="file_input">Picture 4</label>
-                                    <input value={state.picture4Value} name='picture4' className="block w-full text-sm text-gray-900 border border-gray-300  cursor-pointer bg-gray-50" id="file_input" type="file" onChange={(e)=>{dispatch({type: "catchPicture4Value", picture4: e.target.value})}}/>
+                                    <input name='picture4' className="block w-full text-sm text-gray-900 border border-gray-300  cursor-pointer bg-gray-50" id="file_input" type="file"/>
+                                    {/* onChange={(e)=>{dispatch({type: "catchPicture4Value", picture4: e.target.value})}} */}
                                 </div>
                                 {/* Picture 5 */}
                                 <div className=''>                                
