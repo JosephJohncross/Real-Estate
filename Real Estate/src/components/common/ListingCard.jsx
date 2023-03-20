@@ -3,8 +3,8 @@ import React from 'react'
 const ListingCard = ({...props}) => {
   return (
     <div className='flex flex-col font-work group'>
-        <div className=''>
-            <img src={props.picture} alt='property-image' className='w-full rounded-lg'/>
+        <div className='h-40'>
+            <img src={props.picture} alt='property-image' className='w-full h-full rounded-lg'/>
         </div>
         <div className='px-4 -translate-y-10 group-hover:-translate-y-16 transition-transform duration-700'>
             <div className='h-32 rounded-md shadow-lg bg-white p-2 border-transparent border-2 transition-colors group-hover:shadow-[1px 1px #fff299]'>
