@@ -44,6 +44,9 @@ export const northWest = [
   {
     value: "Sokoto",
   },
+  {
+    value: "Zamfara",
+  },
 ];
 
 export const northCentral = [
