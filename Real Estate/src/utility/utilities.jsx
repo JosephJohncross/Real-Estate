@@ -44,6 +44,9 @@ export const northWest = [
   {
     value: "Sokoto",
   },
+  {
+    value: "Zamfara",
+  },
 ];
 
 export const northCentral = [
@@ -141,3 +144,45 @@ export const southWest = [
     value: "Ondo",
   },
 ];
+
+export const listingType = [
+  {
+    value: "Apartment",
+    id: "2"
+  },
+  {
+    value: "House",
+    id: "3"
+  },
+  {
+    value: "Office",
+    id: "4"
+  },
+]
+
+export const propertyStatus = [
+  {
+    value: "Sale",
+    id: "2"
+  },
+  {
+    value: "Rent",
+    id: "3"
+  },
+]
+
+export const rentalFrequency = [
+  {
+    value: "Day",
+    id: "1"
+  },
+  {
+    value: "Week",
+    id: "2"
+  },
+  {
+    value: "Month",
+    id: "3"
+  },
+]
+
